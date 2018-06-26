@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block title %}Image Recognition {% endblock %}
+{% block content %}
+<div class="container">
+  <div style="padding-bottom: 2em;text-align:center">
+    <h1 class="text-center" style="color:#047c2a">Attendance Register</h1>
+    <br><br>
+  </div>
+<br>
+<br>
+    <table class="attendance-table" align='center'>
+    <tbody><tr class="attendance-table-head">
+        <th class="table-head-td-course">User ID &nbsp;&nbsp;&nbsp;&nbsp;</th>
+<th class="table-head-td-course">First Name &nbsp;&nbsp;&nbsp;&nbsp;</th>
+<th class="table-head-td">Last Name &nbsp;&nbsp;&nbsp;&nbsp;</th>
+<th class="table-head-td">Present &nbsp;&nbsp;&nbsp;&nbsp;</th>
+<th class="table-head-td">Absent &nbsp;&nbsp;&nbsp;&nbsp;</th>
+<th class="table-head-td">Total &nbsp;&nbsp;&nbsp;&nbsp;</th>
+</tr>
+    {% for field in fields.all %}
+<tr class="attendanceRow" align="center">
+
+<td class="attendanceRowCourse">{{ field.id }} &nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td class="attendanceRowStat">{{ field.first_name }} &nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td class="attendanceRowStat">{{ field.last_name }} &nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td class="attendanceRowStat">{{ field.present }} &nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td class="attendanceRowStat">{{ field.absent }} &nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td class="attendanceRowStat">{{ field.total }} &nbsp;&nbsp;&nbsp;&nbsp;</td>
+</tr>{%endfor%}
+    </tbody>
+    </table>
+
+
+
+</div>
+{% endblock %}
